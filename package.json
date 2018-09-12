@@ -1,0 +1,24 @@
+{
+  "name": "telegram-bot-menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zZoMROT/telegram-bot-menu.git"
+  },
+  "author": "zzomrot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zZoMROT/telegram-bot-menu/issues"
+  },
+  "homepage": "https://github.com/zZoMROT/telegram-bot-menu#readme",
+  "dependencies": {
+    "array.prototype.find": "^2.0.4",
+    "node-emoji": "^1.8.1",
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}

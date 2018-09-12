@@ -1,0 +1,4 @@
+root:::Главное меню:::level1-1:::{"type":"text", "value":"mytext"}
+Главное меню:::level1-1:::level2
+level1-1:::level2:::level3
+root:::Главное меню:::level1-2:::{"type":"text","value":"3"}
