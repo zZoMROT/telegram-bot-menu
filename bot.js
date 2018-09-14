@@ -10,9 +10,11 @@ module.exports.emoji = emoji;
 module.exports.exec = exec;
 
 var init   = require('./init.js');
-module.exports.init = init;
 var config = require('./config.js');
 var edit   = require('./edit.js');
+var impex  = require('./impex.js');
+module.exports.init = init;
+module.exports.config = config;
 module.exports.edit = edit;
 
 config.loadConfigurationFile().then(() => {
@@ -88,15 +90,17 @@ function start_bot(){
 		}
 
 		/* EXPORT from config to data */
-		if(msg.text == "/export" && checkAdmins(msg.from) == 1){
-			console.log("export");
-			return;
+		if(msg.text.indexOf("/export ") == 0 && checkAdmins(msg.from) == 1){
+			var file = msg.text.split(' ')[1];
+			if(file != undefined && file != "")
+				impex.export_configuration(bot, file);
 		}
 
 		/* IMPORT from data to config */
-		if(msg.text == "/import" && checkAdmins(msg.from) == 1){
-			console.log("import");
-			return;
+		if(msg.text.indexOf("/import ") == 0 && checkAdmins(msg.from) == 1){
+			var file = msg.text.split(' ')[1];
+			if(file != undefined && file != "")
+				impex.import_configuration(bot, file, msg);
 		}
 
 		/* Back button */

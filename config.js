@@ -1,13 +1,11 @@
 var bot = module.parent.exports;
 
-var find = require('array.prototype.find');
-
-function loadConfigurationFile(){
+function loadConfigurationFile(filename = process.argv[2]){
 	return new Promise(function(ok, fail){
-		if(process.argv[2] == undefined){
+		if(filename == undefined){
 			fail("No configuration file");
 		} else {
-			bot.fs.readFile(process.argv[2], {encoding: 'utf-8'}, function(err,data){
+			bot.fs.readFile(filename, {encoding: 'utf-8'}, function(err,data){
 			    if (err){
 			    	fail(err.toString());
 			    } else {
@@ -82,7 +80,7 @@ function loadConfigurationFile(){
 					if(!hasRoot)
 						fail("No root catalog in menu at parrent position");
 
-					checkEmptyStringInConfig(last_string).then(() => {
+					checkEmptyStringInConfig(last_string, filename).then(() => {
 						ok();
 					}, error => {
 						fail(error);
@@ -94,11 +92,11 @@ function loadConfigurationFile(){
 }
 module.exports.loadConfigurationFile = loadConfigurationFile;
 
-function checkEmptyStringInConfig(str){
+function checkEmptyStringInConfig(str, filename){
 	return new Promise(function(ok, fail){
 		if(str != ""){
 			// add empty string
-			bot.exec("echo >> " + process.argv[2], function(error, out, err){
+			bot.exec("echo >> " + filename, function(error, out, err){
 				if(error != null)
 					fail("Error when add empty string to end of config file: " + error.toString());
 				if(err != "")

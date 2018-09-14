@@ -1,6 +1,6 @@
 {
   "name": "telegram-bot-menu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "bot.js",
   "scripts": {
@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/zZoMROT/telegram-bot-menu#readme",
   "dependencies": {
-    "array.prototype.find": "^2.0.4",
     "node-emoji": "^1.8.1",
     "node-telegram-bot-api": "^0.30.0"
   }
