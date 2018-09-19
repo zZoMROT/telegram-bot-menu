@@ -33,14 +33,14 @@ var MSG_EDIT_ITEM_CANC	= "Editing canceled";
 
 /* ---------- BUTTONS ---------- */
 var BUTTON = function(key, _mode){
-	// if catalog has no items and mode doesn't edit then ignore and only actions
-	if(_mode != 1 && menu[key].values.length == 0)
-		return;
-
 	if(key == undefined){
 		key = bot.init.menu_root;
 	}
 
+	// if catalog has no items and mode doesn't edit then ignore and only actions
+	if(_mode != 1 && menu[key].values.length == 0)
+		return;
+	
 	var btns = [];
 
 	for(var i = 0; i < menu[key].values.length; i++){
