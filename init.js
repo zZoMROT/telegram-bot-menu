@@ -15,6 +15,13 @@ var menu = {};
 var menu_root;
 var admins = [];
 
+var proxy = {
+	'host': '',
+	'port': '',
+	'username': '',
+	'password': ''
+}
+
 var MSG_START 			= "Use menu";
 var MSG_DEFAULT 		= "Click to button";
 var MSG_BACK			= function(key){ return "Back to " + key }
@@ -105,6 +112,8 @@ module.exports.buttons = buttons;
 module.exports.menu = menu;
 module.exports.menu_root = menu_root;
 module.exports.admins = admins;
+
+module.exports.proxy = proxy;
 
 module.exports.MSG_START = MSG_START;
 module.exports.MSG_DEFAULT = MSG_DEFAULT;

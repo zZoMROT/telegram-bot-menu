@@ -1,6 +1,8 @@
 process.env.NTBA_FIX_319 = 1;
 
 var TelegramBot = require('node-telegram-bot-api');
+const Agent 	= require('socks5-https-client/lib/Agent')
+
 
 var emoji = require('node-emoji');
 var fs	  = require('fs');
@@ -32,7 +34,19 @@ config.loadConfigurationFile().then(() => {
 });
 
 function start_bot(){
-	var bot = new TelegramBot(init.TOKEN, {polling: true});
+	var bot = new TelegramBot(init.TOKEN, {
+		polling: true, 
+		// request: {
+		// 	agentClass: Agent,
+		// 	agentOptions: {
+		// 		socksHost: init.proxy.host,
+		// 		socksPort: parseInt(init.proxy.port),
+		// 	   	// If authorization is needed:
+		// 	   	// socksUsername: init.proxy.username,
+		// 	   	// socksPassword: init.proxy.password
+		// 	}
+		// }
+	});
 
 	bot.on('message', function(msg){
 		// Actions to SAVE
