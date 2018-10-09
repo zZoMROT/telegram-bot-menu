@@ -73,10 +73,14 @@ function saveActions(from_id){
 		// edit in menu.file
 		var config = "";
 		for(var i = 0; i < edit_actions['add_actions']["userid"+from_id].actions.length; i++){
-			config += bot.init.DELIMETER + JSON.stringify(edit_actions['add_actions']["userid"+from_id].actions[i]);
+			var i_action = Object.assign({}, edit_actions['add_actions']["userid"+from_id].actions[i]);
+			i_action.value = i_action.value.replace("\"", "\\\"");
+			i_action.value = i_action.value.replace("\n", "\\n");
+			config += bot.init.DELIMETER + JSON.stringify(i_action);
 		}
 
-		var sed = "sed -i 's/\\(.*" + bot.init.DELIMETER + edit_actions['add_actions']["userid"+from_id].catalog + bot.init.DELIMETER + edit_actions['add_actions']["userid"+from_id].menu_item + "\\).*/\\1" + config + "/g' " + process.argv[2];
+		config = config.replace("'", "\\'");
+		var sed = "sed -i \"\" 's/\\(.*" + bot.init.DELIMETER + edit_actions['add_actions']["userid"+from_id].catalog + bot.init.DELIMETER + edit_actions['add_actions']["userid"+from_id].menu_item + "\\).*/\\1" + config + "/g' " + process.argv[2];
 		bot.exec(sed, function(error, out, err){
 			if(error != null)
 				fail(error.toString());
