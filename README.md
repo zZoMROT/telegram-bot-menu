@@ -94,3 +94,9 @@ For export your menu to file *menu.export* you can use command **/export menu.ex
 For import your menu from file *menu.export* you can use command **/import menu.export** in bot chat, it's start bot to upload all actions load from *data.folder* to Telegram and modify your *menu.file* with new data from *menu.export*.   
 
 In file *menu.export* actions value indicate a local file, but bot use Telegram file_id in work. If you want  create *menu.file* by yourself without Telegram and you use *voice*, *sticker*, *photo*, *video* or *document* actions, you need import. 
+
+## Ideas for develop
+  * add a proxy to telegram bot
+  * add action 'script' to execute any utils ```{"type":"script","value":"myProgram"}```, ```{"type":"script","value":"cat menu.file"}```
+  * add handler for **/commands** with actions to file.menu ```COMMANDS:::help:::{"type":"text","value":"/help"}```
+  * add configuration file for change delimeter, default answers and etc. params from init.js without using source code
