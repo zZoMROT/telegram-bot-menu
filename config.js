@@ -55,7 +55,7 @@ function loadConfigurationFile(filename = process.argv[2]){
 								var keys = Object.keys(bot.init.buttons[param[0]][j]);
 								for(var jj = 0; jj < keys.length; jj++){
 									if(keys[jj] == param[1]){
-										flagKey = jj;
+										flagKey = j;
 									}
 								}
 				        	}
